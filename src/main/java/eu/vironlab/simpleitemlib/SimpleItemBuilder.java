@@ -213,4 +213,12 @@ public class SimpleItemBuilder {
         SimpleItemLib.getInstance().simpleItemStacks.put(key, itemStack);
         return itemStack;
     }
+
+    public SimpleItemStack build(String key) {
+        this.meta.getPersistentDataContainer().set(SimpleItemLib.getInstance().key, PersistentDataType.STRING, key);
+        this.item.setItemMeta(this.meta);
+        SimpleItemStack itemStack = new SimpleItemStack(item, clickHandler, dropHandler, interactHandler);
+        SimpleItemLib.getInstance().simpleItemStacks.put(key, itemStack);
+        return itemStack;
+    }
 }

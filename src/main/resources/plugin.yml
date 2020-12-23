@@ -34,10 +34,10 @@
 #     Website:         https://vironlab.eu/
 #     Mail:            contact@vironlab.eu
 #
-name: SimpleItemLib
-version: @version@
-main: eu.vironlab.simpleitemlib.SimpleItemLib
-api-version: 1.15
-load: STARTUP
-authors: [ VironLab ]
-description: This is a simple ItemLibPlugin
+name: 'SimpleItemLib'
+version: 1.0.1
+main: 'eu.vironlab.simpleitemlib.SimpleItemLib'
+api-version: '1.16'
+load: 'STARTUP'
+authors: [ 'VironLab' ]
+description: 'This is a simple ItemLibPlugin'

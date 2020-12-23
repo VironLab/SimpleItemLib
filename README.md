@@ -3,7 +3,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 [![Discord](https://img.shields.io/discord/785956343407181824.svg)](https://discord.gg/wvcX92VyEH)
 
-#### The Simple Item Lib is a Library wich allows to easily add eventlistener by a consumer to the ItemStack ( Items are identified by 24char random string set in ItemMeta )
+#### The Simple Item Lib is a Library wich allows to easily add eventlistener by a Consumer to the ItemStack ( Items are identified by 24char random string set in ItemMeta )
 
 --- 
 
