@@ -37,7 +37,6 @@
 
 package eu.vironlab.simpleitemlib;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -54,10 +53,8 @@ import java.util.Map;
 
 public final class SimpleItemLib extends JavaPlugin implements Listener {
 
-
     private static SimpleItemLib instance;
-    public final String keyString = RandomStringUtils.random(64);
-    public final NamespacedKey key = new NamespacedKey(this, keyString);
+    public final NamespacedKey key = new NamespacedKey(this, "FUST4H61ML8Qx0gP53CAFQX97YE2BIaK");
     public Map<String, SimpleItemStack> simpleItemStacks = new HashMap<>();
 
     public static SimpleItemLib getInstance() {
@@ -122,4 +119,5 @@ public final class SimpleItemLib extends JavaPlugin implements Listener {
             }
         }
     }
+
 }
