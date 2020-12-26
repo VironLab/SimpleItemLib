@@ -54,7 +54,7 @@ import java.util.Map;
 public final class SimpleItemLib extends JavaPlugin implements Listener {
 
     private static SimpleItemLib instance;
-    public final NamespacedKey key = new NamespacedKey(this, "FUST4H61ML8Qx0gP53CAFQX97YE2BIaK");
+    public NamespacedKey key = new NamespacedKey(this, "FUST4H61ML8Qx0gP53CAFQX97YE2BIaK");
     public Map<String, SimpleItemStack> simpleItemStacks = new HashMap<>();
 
     public static SimpleItemLib getInstance() {
@@ -120,4 +120,14 @@ public final class SimpleItemLib extends JavaPlugin implements Listener {
         }
     }
 
+    /**
+     * It must be ensured that the key is always set at the start of the plugin for items that are to be used permanently.
+     * Otherwise, previously created items will no longer work.
+     * It is not recommended to use this method if you are not familiar with the topic.
+     *
+     * @param key is the New key the Plugin use
+     */
+    public void setKey(NamespacedKey key) {
+        this.key = key;
+    }
 }
