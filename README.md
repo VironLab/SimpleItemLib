@@ -5,6 +5,17 @@
 
 #### The Simple Item Lib is a Library wich allows to easily add eventlistener by a Consumer to the ItemStack ( Items are identified by 24char random string set in ItemMeta )
 
+### Example
+
+```java
+        SimpleItemBuilder builder = new SimpleItemBuilder(Material.IRON_AXE);
+        builder.addItemFlag(ItemFlag.HIDE_ATTRIBUTES);
+        builder.setClickHandler(event -> {
+           event.getWhoClicked().sendMessage("You have clicked the Item"); 
+        });
+        SimpleItemStack itemStack = builder.build();
+```
+
 --- 
 
 <div align="center">
