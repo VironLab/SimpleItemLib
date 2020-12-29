@@ -35,8 +35,9 @@
  *
  */
 
-package eu.vironlab.simpleitemlib
+package eu.vironlab.simpleitemlib.item
 
+import eu.vironlab.simpleitemlib.SimpleItemLib
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

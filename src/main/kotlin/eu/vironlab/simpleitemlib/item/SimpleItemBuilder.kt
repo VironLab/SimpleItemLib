@@ -82,7 +82,7 @@ class SimpleItemBuilder {
      * @param amount is the amount of the Item
      */
     constructor(material: Material, amount: Int) {
-        item = ItemStack(material!!)
+        item = ItemStack(material)
         meta = item.itemMeta
         this.amount = amount
     }
@@ -182,6 +182,30 @@ class SimpleItemBuilder {
         return this
     }
 
+    fun reset(material: Material) {
+        this.item = ItemStack(material)
+        this.meta = item.itemMeta
+        this.amount = 0
+        this.blockDrop = false
+        this.blockInteract = false
+        this.blockClick = false
+        this.clickHandler= null
+        this.dropHandler= null
+        this.interactHandler = null
+    }
+
+    fun reset(material: Material, amount: Int) {
+        this.item = ItemStack(material, amount)
+        this.meta = item.itemMeta
+        this.amount = amount
+        this.blockDrop = false
+        this.blockInteract = false
+        this.blockClick = false
+        this.clickHandler= null
+        this.dropHandler= null
+        this.interactHandler = null
+    }
+    
     /**
      * Add the [lore] to the Item as Lore
      */
