@@ -1,6 +1,7 @@
-apply plugin: 'java'
-apply plugin: 'java-library'
-apply plugin: 'maven-publish'
+plugins {
+    id 'maven-publish'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.20'
+}
 
 group = 'eu.vironlab.simpleitemlib'
 version = '1.0.1'
@@ -23,7 +24,8 @@ repositories {
 
 dependencies {
     compileOnly 'org.bukkit:bukkit:1.15-R0.1-SNAPSHOT'
-    compile 'com.github.derrop:documents:1.1-RELEASE'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.4.20'
+    compile 'com.google.code.gson:gson:2.8.6'
 }
 
 jar {
