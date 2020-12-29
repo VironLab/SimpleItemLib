@@ -44,19 +44,5 @@ import org.bukkit.event.inventory.InventoryCloseEvent
 
 class GuiInventoryCloseListener(val guiManager: GuiManager): Listener {
 
-    @EventHandler
-    fun handleInventoryClose(event: InventoryCloseEvent) {
-        if (event.player is Player) {
-            if (event.inventory.holder is SimpleInventoryHolder) {
-                val key: String = (event.inventory.holder as SimpleInventoryHolder).identifier
-                if (this.guiManager.guis.containsKey(key)) {
-                    val gui: GUI = this.guiManager.guis.get(key)!!
-                    if (gui.getCloseHandler() != null) {
-                        gui.getCloseHandler()!!.accept(event.player as Player)
-                    }
-                }
-            }
-        }
-    }
 
 }

@@ -36,14 +36,18 @@
  */
 package eu.vironlab.simpleitemlib
 
+import eu.vironlab.simpleitemlib.gui.GuiEntry
 import eu.vironlab.simpleitemlib.gui.GuiManager
-import eu.vironlab.simpleitemlib.item.SimpleItemStack
+import eu.vironlab.simpleitemlib.gui.SimpleGUI
+import eu.vironlab.simpleitemlib.gui.factory.SimpleGUIFactory
+import eu.vironlab.simpleitemlib.item.*
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 
-class SimpleItemLib : JavaPlugin(), Listener {
+class SimpleItemLib : JavaPlugin() {
     /**
      * INFORMATION IF YOU WANT TO SET A NEW NAMESPACEDKEY
      *
@@ -58,7 +62,9 @@ class SimpleItemLib : JavaPlugin(), Listener {
     override fun onEnable() {
         instance = this
         this.guiManager.init(this)
-        Bukkit.getPluginManager().registerEvents(this, this)
+        Bukkit.getPluginManager().registerEvents(InteractListener(this), this)
+        Bukkit.getPluginManager().registerEvents(ClickListener(this), this)
+        Bukkit.getPluginManager().registerEvents(DropListener(this), this)
     }
 
     companion object {

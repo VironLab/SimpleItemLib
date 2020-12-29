@@ -66,14 +66,6 @@ class GuiManager {
     }
 
     fun getPage(inventory: Inventory): Page? {
-        val gui: GUI? = this.guis.get((inventory.holder as SimpleInventoryHolder).identifier)
-        if (gui != null) {
-            if (gui is SimpleGUI) {
-                return gui
-            }else if(gui is MultiPageGUI) {
-                return gui.getPage((inventory.holder as SimpleInventoryHolder).pageIndex - 1)
-            }
-        }
         return null
     }
 

@@ -248,7 +248,7 @@ class SimpleItemBuilder {
         }
         meta!!.persistentDataContainer.set(instance!!.key, PersistentDataType.STRING, key)
         item.itemMeta = meta
-        val itemStack = SimpleItemStack(item, clickHandler!!, dropHandler!!, interactHandler!!)
+        val itemStack = SimpleItemStack(item, clickHandler, dropHandler, interactHandler)
         instance!!.simpleItemStacks.put(key, itemStack)
         return itemStack
     }

@@ -38,16 +38,23 @@
 package eu.vironlab.simpleitemlib.item
 
 import eu.vironlab.simpleitemlib.SimpleItemLib
+import eu.vironlab.simpleitemlib.gui.GuiEntry
+import eu.vironlab.simpleitemlib.gui.SimpleGUI
+import eu.vironlab.simpleitemlib.gui.factory.SimpleGUIFactory
+import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerDropItemEvent
 import org.bukkit.event.player.PlayerInteractEvent
+import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.persistence.PersistentDataType
 
 
 class InteractListener(val itemLib: SimpleItemLib) : Listener {
+
     @EventHandler
     fun handleInteract(e: PlayerInteractEvent) {
         if (e.item != null) {

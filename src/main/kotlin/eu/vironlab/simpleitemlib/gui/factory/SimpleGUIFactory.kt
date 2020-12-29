@@ -103,7 +103,7 @@ internal class SimpleGUIImpl(
     }
 
     override fun open(player: Player) {
-        val inv: Inventory = Bukkit.createInventory(null, rows)
+        val inv: Inventory = Bukkit.createInventory(null, (rows * 9), title)
         this.entries.forEach {
             if (it.value.permission != null) {
                 if (!player.hasPermission(it.value.permission!!)) {
@@ -112,6 +112,7 @@ internal class SimpleGUIImpl(
             }
             inv.setItem(it.key, it.value.item.item)
         }
+        player.openInventory(inv)
     }
 
     override fun getOpenHandler(): Consumer<Player>? {

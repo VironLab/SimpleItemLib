@@ -58,9 +58,9 @@ class SimpleItemStack {
 
     constructor(
         item: ItemStack,
-        clickHandler: Consumer<InventoryClickEvent>,
-        dropHandler: Consumer<PlayerDropItemEvent>,
-        interactHandler: Consumer<PlayerInteractEvent>
+        clickHandler: Consumer<InventoryClickEvent>?,
+        dropHandler: Consumer<PlayerDropItemEvent>?,
+        interactHandler: Consumer<PlayerInteractEvent>?
     ) {
         this.item = item
         this.clickHandler = clickHandler
