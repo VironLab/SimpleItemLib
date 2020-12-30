@@ -12,18 +12,13 @@ targetCompatibility = '1.8'
 repositories {
     mavenCentral()
     maven {
-        name = 'spigotmc-repo'
-        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        url 'https://papermc.io/repo/repository/maven-public/'
+        name 'paper'
     }
-    maven {
-        name 'jitpack'
-        url 'https://jitpack.io'
-    }
-
 }
 
 dependencies {
-    compileOnly 'org.bukkit:bukkit:1.15-R0.1-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.3-R0.1-SNAPSHOT'
     compile 'org.jetbrains.kotlin:kotlin-stdlib:1.4.20'
     compile 'com.google.code.gson:gson:2.8.6'
 }
