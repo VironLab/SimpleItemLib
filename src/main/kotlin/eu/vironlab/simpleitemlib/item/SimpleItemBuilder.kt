@@ -36,22 +36,24 @@
  */
 package eu.vironlab.simpleitemlib.item
 
+import com.destroystokyo.paper.profile.PlayerProfile
+import com.destroystokyo.paper.profile.ProfileProperty
 import eu.vironlab.simpleitemlib.SimpleItemLib.Companion.instance
-import org.bukkit.inventory.ItemStack
-import org.bukkit.inventory.meta.ItemMeta
-import org.bukkit.event.inventory.InventoryClickEvent
-import org.bukkit.event.player.PlayerDropItemEvent
-import org.bukkit.event.player.PlayerInteractEvent
-import org.bukkit.Material
-import org.bukkit.inventory.meta.LeatherArmorMeta
-import org.bukkit.inventory.ItemFlag
-import org.bukkit.enchantments.Enchantment
-import java.util.Arrays
 import org.apache.commons.lang.RandomStringUtils
 import org.bukkit.Bukkit
 import org.bukkit.Color
-import org.bukkit.inventory.Inventory
+import org.bukkit.Material
+import org.bukkit.enchantments.Enchantment
+import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.player.PlayerDropItemEvent
+import org.bukkit.event.player.PlayerInteractEvent
+import org.bukkit.inventory.ItemFlag
+import org.bukkit.inventory.ItemStack
+import org.bukkit.inventory.meta.ItemMeta
+import org.bukkit.inventory.meta.LeatherArmorMeta
+import org.bukkit.inventory.meta.SkullMeta
 import org.bukkit.persistence.PersistentDataType
+import java.util.*
 import java.util.function.Consumer
 
 class SimpleItemBuilder {
@@ -189,8 +191,8 @@ class SimpleItemBuilder {
         this.blockDrop = false
         this.blockInteract = false
         this.blockClick = false
-        this.clickHandler= null
-        this.dropHandler= null
+        this.clickHandler = null
+        this.dropHandler = null
         this.interactHandler = null
     }
 
@@ -201,17 +203,39 @@ class SimpleItemBuilder {
         this.blockDrop = false
         this.blockInteract = false
         this.blockClick = false
-        this.clickHandler= null
-        this.dropHandler= null
+        this.clickHandler = null
+        this.dropHandler = null
         this.interactHandler = null
     }
-    
+
     /**
      * Add the [lore] to the Item as Lore
      */
     fun addLore(lore: List<String?>?): SimpleItemBuilder {
         meta!!.lore = lore
         return this
+    }
+
+    /**
+     * Set the SkullTexture by [url] such as 'https://minecraft-heads.com/custom-heads'
+     */
+    fun setSkullUrl(url: String) {
+        val profile: PlayerProfile = Bukkit.createProfile(UUID.randomUUID(), "skull")
+        profile.setProperty(
+            ProfileProperty(
+                "textures", Base64.getEncoder()
+                    .encodeToString(String.format("{textures:{SKIN:{url:\"%s\"}}}", url).toByteArray())
+            )
+        )
+        (meta as SkullMeta).setPlayerProfile(profile)
+    }
+
+    /**
+     * Set the Owner of the PLAYER_HEAD to [name]
+     */
+    @Deprecated("Deprecated from Bukkit")
+    fun setSkullOwner(name: String) {
+        (this.meta as SkullMeta).setOwner(name)
     }
 
     /**
